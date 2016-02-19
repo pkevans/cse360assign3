@@ -1,5 +1,7 @@
 package cse360assign3;
 
+//Testing commit
+
 public class Calculator {
 	
 	private int total;
