@@ -2,7 +2,7 @@ package cse360assign3;
 
 /**
  * Class to implement calculator functions: add, subtract, total, multiply, divide, and history. 
- * Initial version. Methods are left empty. 
+ * Second version. getHistory method left empty. 
  * 
  * @author Patricia Evans PIN: 308 for CSE360 Spring 2016
  * @version February 21, 2016
@@ -24,51 +24,68 @@ public class Calculator {
 	}
 	
 	/**
-	 * getTotal - to remain empty for commit
+	 * getTotal - returns the total calculated. 
 	 * 
 	 * @param none
 	 * @return int 0
 	 */
 	public int getTotal(){
 		
-		return 0;
+		return total;
 		
 	}
 	
 	/**
-	 * add - to remain empty for commit
+	 * add - adds total and value. 
 	 * 
 	 * @param value int 
 	 */
 	public void add(int value){
 		
+		total = total + value;
 	}
 	
 	/**
-	 * subtract - to remain empty for commit
+	 * subtract - subtracts value from total. 
 	 * 
 	 * @param value int 
 	 */
 	public void subtract(int value){
 		
+		total = total - value;
+		
 	}
 	
 	/**
-	 * multiply - to remain empty for commit
+	 * multiply - multiplies total and value. 
 	 * 
 	 * @param value int 
 	 */
 	public void multiply(int value){
 			
+		total = total * value;
+		
 	}
 	
 	/**
-	 * divide - to remain empty for commit
+	 * divide - divides total and value. 
 	 * 
 	 * @param value int 
 	 */
 	public void divide(int value){
+		
+		if(value == 0 || total == 0){
 			
+			total = 0;
+			
+		}
+		
+		else{
+			
+			total = total / value;
+			
+		}
+				
 	}
 	
 	/**
