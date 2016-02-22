@@ -6,7 +6,7 @@ import org.junit.Test;
 
 /*
  * Junit test cases to be implemented with the file: Calculator.java
- * Second version. 
+ * Third version. 
  * 
  * Author: Patricia Evans PIN: 308 for CSE360 Spring 2016
  * Date: February 21, 2016
@@ -19,6 +19,7 @@ public class CalculatorTest{
 	public void testCalculator(){
 		
 		Calculator calc = new Calculator();
+		
 		assertNotNull(calc);
 		
 	}
@@ -284,6 +285,7 @@ public class CalculatorTest{
 		assertEquals(-12, calc.getTotal());
 							
 	}
+	
 	//divide - Test to divide value and 0. 
 	@Test
 	public void testDivideByZeroNumerator(){
@@ -374,7 +376,6 @@ public class CalculatorTest{
 				
 	}
 	
-	
 	//Test to add, subtract, multiply, then divide. 
 	@Test
 	public void testAddSubtractMultiplyDivide(){
@@ -390,12 +391,127 @@ public class CalculatorTest{
 					
 	}
 	
-	//getHistory - Test will fail
+	//getHistory - Testing String with initial total
 	@Test
-	public void testGetHistory(){
-		
-		fail("Not yet implemented");
-		
+	public void testGetHistoryInitial(){
+				
+		Calculator calc = new Calculator();
+					
+		assertEquals("0", calc.getHistory());
+			
 	}
+	
+	//getHistory - Testing String by adding negative number
+	@Test
+	public void testGetHistoryAddNegative(){
+						
+		Calculator calc = new Calculator();
+		
+		calc.add(-16);
+						
+		assertEquals("0 + -16", calc.getHistory());
+				
+	}
+	
+	//getHistory - Testing String by subtracting negative number
+	@Test
+	public void testGetHistorySubNegative(){
+									
+		Calculator calc = new Calculator();
+			
+		calc.subtract(-34);
+							
+		assertEquals("0 - -34", calc.getHistory());
+					
+	}
+	
+	//getHistory - Testing String by multiplying negative number
+	@Test
+	public void testGetHistoryMultNegative(){
+										
+		Calculator calc = new Calculator();
+				
+		calc.multiply(-7);
+								
+		assertEquals("0 * -7", calc.getHistory());
+						
+	}
+	
+	//getHistory - Testing String by dividing negative number
+	@Test
+	public void testGetHistoryDivNegative(){
+											
+		Calculator calc = new Calculator();
+					
+		calc.divide(-62);
+									
+		assertEquals("0 / -62", calc.getHistory());
+							
+	}
+	
+	//getHistory - Testing String to print history of 
+	//add, subtract, multiply, and divide. 
+	@Test
+	public void testGetHistoryAddSubMultDiv(){
+			
+		Calculator calc = new Calculator();
+		
+		calc.add(100);
+		calc.subtract(50);
+		calc.multiply(2);
+		calc.divide(4);
+					
+		assertEquals("0 + 100 - 50 * 2 / 4", calc.getHistory());
+			
+	}
+	
+	//getHistory - Testing String by duplicating the history
+	@Test
+	public void testGetHistoryDuplicate(){
+								
+		Calculator calc = new Calculator();
+			
+		calc.add(99);
+		calc.subtract(82);
+		calc.multiply(4);
+		calc.divide(3);
+		calc.add(99);
+		calc.subtract(82);
+		calc.multiply(4);
+		calc.divide(3);
+							
+		assertEquals("0 + 99 - 82 * 4 / 3 + 99 - 82 * 4 / 3", calc.getHistory());
+					
+	}
+	
+	//getHistory - Testing String with the integer value of each function set to 0.
+	@Test
+	public void testGetHistoryAllZero(){
+									
+		Calculator calc = new Calculator();
+		
+		calc.add(0);
+		calc.subtract(0);
+		calc.multiply(0);
+		calc.divide(0);
 
+		assertEquals("0 + 0 - 0 * 0 / 0", calc.getHistory());
+						
+	}
+	
+	//getHistory - Testing String with random order.
+	@Test
+	public void testGetHistoryRandom(){
+										
+		Calculator calc = new Calculator();
+			
+		calc.multiply(9);
+		calc.add(6);
+		calc.divide(67);
+		calc.subtract(1430);
+
+		assertEquals("0 * 9 + 6 / 67 - 1430", calc.getHistory());
+							
+	}
+	
 }
